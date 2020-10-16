@@ -38,24 +38,27 @@ export class AddStudentComponent implements OnInit {
     }
     else {
       this.form = this.fb.group({
-        name: ['',Validators.required,Validators.pattern('^[a-zA-Z]+$')],
-        age: ['',Validators.required,Validators.min(1)],
-        dob: ['',Validators.required],
-        sex:['',Validators.required]
+        name: ['',[Validators.required,Validators.pattern('^[a-zA-Z]+$')]],
+        age: ['',[Validators.required,Validators.min(1)]],
+        dob: ['',[Validators.required]],
+        sex:['',[Validators.required]]
       });
     }
  
   }
 
   onSubmit(form) {
-    this.studentService.saveStudent(form).subscribe(res=> {
-      if (res){
-        this.router.navigate(['/']);
-      }
-    } );
+    if(this.form.valid) {
+      this.studentService.saveStudent(form).subscribe(res=> {
+        if (res){
+          this.router.navigate(['/']);
+        }
+      } );
+    }
+  }
 
     
-  }
+  
 
   onUpdate(form) {
     console.log(this.studentId);

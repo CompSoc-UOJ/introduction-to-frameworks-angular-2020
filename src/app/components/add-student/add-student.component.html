@@ -9,16 +9,16 @@
 </div>
 
 
-<div class="card">
-    <div class="card-header" *ngIf="!isEdit">
+<div class="card container">
+    <div class="card-header" *ngIf="!isEdit" style="color: darkred; font-size: 20px; font-weight: bold;" >
         Add Client
     </div>
-    <div class="card-header" *ngIf="isEdit">
+    <div class="card-header" *ngIf="isEdit" style="color: darkred; font-size: 20px; font-weight: bold;">
         Update Client
     </div>
 
     <!-- name -->
-    <div class="card-block">
+    <div class="card-block" style="margin-left:15%">
         <form [formGroup]="form">
             <!-- Name -->
             <div class="form-group">
@@ -73,9 +73,9 @@
 
 
 
-            <input *ngIf="isEdit" type="submit" (click)="onUpdate(form)" class="btn btn-danger btn-block"
+            <input *ngIf="isEdit" type="submit" (click)="onUpdate(form)" class="btn btn-success "
                 value="Update">
-            <input *ngIf="!isEdit" type="submit" (click)="onSubmit(form)" class="btn btn-danger btn-block"
+            <input *ngIf="!isEdit" type="submit" (click)="onSubmit(form)" class="btn btn-success "
                 value="Submit">
         </form>
     </div>
